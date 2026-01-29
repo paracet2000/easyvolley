@@ -1,46 +1,131 @@
-
-.preview-card {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-
-  padding: 24px 32px;
-  /* background: linear-gradient(135deg, #0f172a, #020617); */
-  border-radius: 18px;
-
-  max-width: 700px;
-  color: white;
-}
-
-/* ⭐ STAR PLAYER */
-.star-hero img {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 14px;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
-}
-
-/* 🛡️ TEAM */
-.team {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.team-logo {
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
+h2 {
+  color: #333;
+}
 
-  filter: drop-shadow(0 0 14px rgba(255,255,255,.35));
+/* Layout for the two columns */
+.main-container {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.selectors {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1;
+  font-size: 16px;
+}
+
+/* PREVIEW CONTAINER */
+.preview-container {
+  border-radius: 18px;
+  transition: background 0.3s ease;
+  min-height: 250px; /* Reserve space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD STYLING */
+.preview-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 24px;
+  width: 100%;
+  color: white;
+}
+
+/* 
+   Magic Trick for Team 2: 
+   Use row-reverse to flip the logo/star positions 
+   so it looks like they are facing the Home team.
+*/
+.preview-card.reverse {
+  flex-direction: row-reverse;
+  text-align: right; 
+}
+
+/* STAR PLAYERS */
+.star-hero {
+  display: flex;
+  justify-content: center; 
+}
+
+.star-hero.single img {
+  /* transform: rotate(-3deg); */
+}
+
+.star-hero.double img:first-child {
+  z-index: 1;
+  /* transform: translateX(10px) rotate(-5deg); */
+}
+.star-hero.double img:last-child {
+  z-index: 0;
+  /* transform: translateX(-10px) rotate(5deg) scale(0.95); */
+  filter: brightness(0.8);
+}
+
+.star-hero img {
+  width: 140px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* TEAM INFO */
+.team-info {
+  display: flex;
+  flex-direction: column; /* เรียงแนวตั้ง (โลโก้อยู่บน ชื่ออยู่ล่าง) */
+  align-items: center;    /* จัดให้โลโก้และชื่ออยู่ "กึ่งกลาง" ของกล่อง */
+  justify-content: center;
+  width: 220px;           /* กำหนดความกว้างให้แน่นอน */
+}
+
+.team-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
 }
 
 .team-name {
-  margin-top: 14px;
-  font-size: 22px;
+  margin-top: 12px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: .5px;
-  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  
+  /* เพิ่ม 2 บรรทัดนี้ เพื่อบังคับให้ตัวหนังสืออยู่ตรงกลางเสมอ */
+  text-align: center; 
+  width: 100%;
 }

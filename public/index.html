@@ -8,19 +8,40 @@
 </head>
 <body>
 
-  <h2>EasyVolley – Team Thumbnail Preview</h2>
+  <header>
+    <h2>EasyVolley – Team Thumbnail Preview</h2>
+  </header>
 
-  <div>
-    <select id="leagueSelect">
-      <option value="">Select League</option>
-    </select>
+  <div class="main-container">
+    <!-- LEFT SIDE (Home Team) -->
+    <div class="control-group">
+      <h3>Home Team</h3>
+      <div class="selectors">
+        <select id="leagueSelect1">
+          <option value="">Select League</option>
+        </select>
+        <select id="teamSelect1" disabled>
+          <option value="">Select Team</option>
+        </select>
+      </div>
+      <!-- Pass a data-side attribute to handle styling logic in JS/CSS if needed -->
+      <div class="preview-container" id="preview1" data-side="home"></div>
+    </div>
 
-    <select id="teamSelect" disabled>
-      <option value="">Select Team</option>
-    </select>
+    <!-- RIGHT SIDE (Away Team) -->
+    <div class="control-group">
+      <h3>Away Team</h3>
+      <div class="selectors">
+        <select id="leagueSelect2">
+          <option value="">Select League</option>
+        </select>
+        <select id="teamSelect2" disabled>
+          <option value="">Select Team</option>
+        </select>
+      </div>
+      <div class="preview-container" id="preview2" data-side="away"></div>
+    </div>
   </div>
-
-  <div class="preview" id="preview"></div>
 
 </body>
 </html>

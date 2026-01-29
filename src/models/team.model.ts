@@ -7,6 +7,11 @@ export interface Team {
   name: string;
   shortName: string;
   logo: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  // ⚠️ DEPRECATED
+  // stars field is no longer used.
+  // Star players are derived from Player.role === 'star'
   stars: string[]; // player ids (2 คนหลัก)
 }
 
