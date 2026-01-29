@@ -1,3 +1,4 @@
+import path from "path";
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
@@ -12,6 +13,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors()); // 👈 บรรทัดนี้สำคัญมาก
+app.use(express.static(path.join(process.cwd(), "public")));
 const PORT = 3000;
 
 connectDB();

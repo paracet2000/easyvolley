@@ -2,7 +2,7 @@ const leagueSelect = document.getElementById('leagueSelect');
 const teamSelect = document.getElementById('teamSelect');
 const preview = document.getElementById('preview');
 
-const API = 'http://localhost:3000/api';
+const API = '/api';
 
 // 1. โหลดลีกทั้งหมด
 async function loadLeagues() {
