@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getLeagues } from '../controllers/league.controller.js';
+import { getLeagues } from '../controllers/league.controller';
 
 const router = Router();
 

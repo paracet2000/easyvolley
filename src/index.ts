@@ -1,11 +1,11 @@
 import path from "path";
 import express from 'express';
 import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
-import leagueRoutes from './routes/league.routes.js';
-import teamRoutes from './routes/team.routes.js';
-import playerRoutes from './routes/player.routes.js';
-import thumbnailRoutes from './routes/thumbnail.routes.js';
+import { connectDB } from './config/db';
+import leagueRoutes from './routes/league.routes';
+import teamRoutes from './routes/team.routes';
+import playerRoutes from './routes/player.routes';
+import thumbnailRoutes from './routes/thumbnail.routes';
 import cors from 'cors'
 
 dotenv.config();
