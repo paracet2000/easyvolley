@@ -1,5 +1,6 @@
 // Configuration
-const API = 'http://localhost:3000/api';
+// const API = 'http://localhost:3000/api';
+const API = '/api';
 
 // Select DOM Elements
 const elements = {
