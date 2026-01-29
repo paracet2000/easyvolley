@@ -8,13 +8,13 @@ const elements = {
     league: document.getElementById('leagueSelect1'),
     team: document.getElementById('teamSelect1'),
     preview: document.getElementById('preview1'),
-    gradient: 'linear-gradient(135deg, rgb(87, 87, 194), rgb(48, 90, 48))'
+    // gradient: ... ลบออกแล้ว เพราะจะสร้างใหม่จากข้อมูลทีม
   },
   away: {
     league: document.getElementById('leagueSelect2'),
     team: document.getElementById('teamSelect2'),
     preview: document.getElementById('preview2'),
-    gradient: 'linear-gradient(135deg, rgb(239, 171, 10), rgb(163, 81, 173))'
+    // gradient: ... ลบออกแล้ว เพราะจะสร้างใหม่จากข้อมูลทีม
   }
 };
 
@@ -85,14 +85,18 @@ async function handleTeamChange(sideKey) {
   try {
     const res = await fetch(`${API}/team-thumbnail?leagueId=${leagueId}&teamId=${teamId}`);
     const data = await res.json();
-    renderPreview(data, config.preview, config.gradient, sideKey);
+    
+    // UPDATE: ไม่ต้องส่ง config.gradient แล้ว ส่งแค่ data, element, และ side
+    renderPreview(data, config.preview, sideKey); 
+
   } catch (error) {
     console.error("Error fetching thumbnail data:", error);
   }
 }
 
 // 4. Unified Render Function
-function renderPreview(data, container, backgroundStyle, side) {
+// UPDATE: ลบ parameter 'backgroundStyle' ออก เพราะเราจะสร้างเองข้างใน
+function renderPreview(data, container, side) {
   const stars = data.stars || [];
   let starHtml = '';
 
@@ -113,6 +117,14 @@ function renderPreview(data, container, backgroundStyle, side) {
   // Determine card class (preview-card for home, preview-card-reverse for away)
   const cardClass = side === 'away' ? 'preview-card reverse' : 'preview-card';
 
+  // --- NEW: Dynamic Gradient Logic ---
+  // ดึงสีจาก Data ถ้าไม่มีให้ใช้สี Default (สีเทาเข้ม/ดำ)
+  const color1 = data.team.primaryColor || '#333333';
+  const color2 = data.team.secondaryColor || '#000000';
+
+  // สร้าง String Gradient
+  const dynamicGradient = `linear-gradient(135deg, ${color1}, ${color2})`;
+
   container.innerHTML = `
     <div class="${cardClass}">
       ${starHtml}
@@ -122,7 +134,8 @@ function renderPreview(data, container, backgroundStyle, side) {
       </div>
     </div>`;
   
-  container.style.background = backgroundStyle;
+  // Apply Dynamic Gradient
+  container.style.background = dynamicGradient;
 }
 
 // Event Listeners
