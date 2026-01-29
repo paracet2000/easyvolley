@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { LeagueModel } from '../models/league.model';
-import { TeamModel } from '../models/team.model';
-import PlayerModel from '../models/player.model';
+import { LeagueModel } from '../models/league.model.js';
+import { TeamModel } from '../models/team.model.js';
+import PlayerModel from '../models/player.model.js';
 
 export const getTeamThumbnail = async (req: Request, res: Response) => {
   const { leagueId, teamId } = req.query as {

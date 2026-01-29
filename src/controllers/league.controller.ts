@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { LeagueModel } from '../models/league.model';
+import { LeagueModel } from '../models/league.model.js';
 
 /**
  * GET /api/leagues
