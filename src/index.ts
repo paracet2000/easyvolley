@@ -5,10 +5,13 @@ import leagueRoutes from './routes/league.routes';
 import teamRoutes from './routes/team.routes';
 import playerRoutes from './routes/player.routes';
 import thumbnailRoutes from './routes/thumbnail.routes';
+import cors from 'cors'
 
 dotenv.config();
 
+
 const app = express();
+app.use(cors()); // 👈 บรรทัดนี้สำคัญมาก
 const PORT = 3000;
 
 connectDB();

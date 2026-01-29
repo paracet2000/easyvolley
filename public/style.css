@@ -1,0 +1,46 @@
+
+.preview-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  padding: 24px 32px;
+  /* background: linear-gradient(135deg, #0f172a, #020617); */
+  border-radius: 18px;
+
+  max-width: 700px;
+  color: white;
+}
+
+/* ⭐ STAR PLAYER */
+.star-hero img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
+
+/* 🛡️ TEAM */
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+
+  filter: drop-shadow(0 0 14px rgba(255,255,255,.35));
+}
+
+.team-name {
+  margin-top: 14px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-align: center;
+}
